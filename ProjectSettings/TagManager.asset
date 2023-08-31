@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Interactable
+  - Ground
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Enemy
+  - CanSwing
+  - Interactable
+  - CantPassThrough
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BG
+    uniqueID: 2485827187
+    locked: 0
+  - name: BG2
+    uniqueID: 3819578177
+    locked: 0
+  - name: BG3
+    uniqueID: 1163584185
+    locked: 0
+  - name: BG4
+    uniqueID: 388897213
+    locked: 0
+  - name: BG5
+    uniqueID: 760292335
+    locked: 0
+  - name: BG6
+    uniqueID: 2961479121
+    locked: 0
+  - name: BG7
+    uniqueID: 2586056659
+    locked: 0
+  - name: Tree
+    uniqueID: 1503434327
+    locked: 0
+  - name: RockAndOtherBehindGround
+    uniqueID: 3136579933
+    locked: 0
+  - name: Interactable
+    uniqueID: 3676946931
+    locked: 0
+  - name: Characters
+    uniqueID: 3952539983
+    locked: 0
+  - name: Water
+    uniqueID: 1984966873
+    locked: 0
+  - name: Ground
+    uniqueID: 783175909
+    locked: 0
+  - name: RockAndOtherFrontGround
+    uniqueID: 571495339
+    locked: 0
