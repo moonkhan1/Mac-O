@@ -39,7 +39,7 @@ public class BarbarController : MonoBehaviour, IEnemyController
         MoveManager = new MoveWithNavMesh(this);
 
         Health = new Health(HealthSo);
-        Attacker = AttackSo.GetTypeOfAttack(this);
+        Attacker = AttackSo.GetTypeOfEnemyAttack(this);
     }
 
     private void Start()

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Ground
+  - CameraTag
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - CanSwing
   - Interactable
   - CantPassThrough
-  - 
+  - Inter
   - 
   - 
   - 

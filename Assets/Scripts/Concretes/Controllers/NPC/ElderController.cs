@@ -21,18 +21,38 @@ public class ElderController : MonoBehaviour, ITalkableNPC,IMissionGiverNPC
         _collider2D = GetComponent<BoxCollider2D>();
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.transform.CompareTag("Player"))
         {
             OnPlayerApproached?.Invoke();
             _mmPathMovement.MovementSpeed = 0f;
             MMMaths.LookAt2D(col.transform.position);
-            _collider2D.enabled = false;
-            GiveWormMission();
+            
+            GiveAllMissions();
         }
     }
-    private void GiveWormMission()
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.transform.CompareTag("Player"))
+        {
+            _collider2D.enabled = false;
+        }
+    }
+
+    // private void OnCollisionEnter2D(Collision2D col)
+    // {
+    //     if (col.transform.CompareTag("Player"))
+    //     {
+    //         OnPlayerApproached?.Invoke();
+    //         _mmPathMovement.MovementSpeed = 0f;
+    //         MMMaths.LookAt2D(col.transform.position);
+    //         _collider2D.enabled = false;
+    //         GiveWormMission();
+    //     }
+    // }
+    private void GiveAllMissions()
     {
         MissionManager.StartMission(killingMissions);
     }

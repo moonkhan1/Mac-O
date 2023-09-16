@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: Kill 1 Skeleton Barbarian
   description: Should Kill 1 Skeleton Barbarian in the dungeon
-  isActive: 0
+  isActive: 1
   isCompleted: 0
   targetKills: 1
   currentKills: 0
   EnemyTypes: 1
-  missionPanel: {fileID: 0}
-  descriptionText: {fileID: 0}

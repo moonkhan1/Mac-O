@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc4936f5f642f24dbcae6dccc4350ff, type: 3}
   m_Name: SkeletonBarbarAttack
   m_EditorClassIdentifier: 
-  _attackType: 2
+  _attackType: 3
   _damage: 1
   _attackDelayTime: 1.1
-  _attackRange: {x: 18, y: 18}
+  _attackRange: {x: 25, y: 25}

@@ -13,6 +13,7 @@ public class InputOneReader : IInputReader
     public bool isMovingPressed { get;  private set; }
     public bool isInteraction { get; private set; }
     public bool isDash { get; private set; }
+    public PlayerOneInput Input => _input;
     
     int _inventoryIndex;
     int _jumpIndex;
@@ -31,6 +32,7 @@ public class InputOneReader : IInputReader
         _input.Player.Dash.started += DashPerformed;
         _input.Player.Dash.performed += DashPerformed;
         _input.Player.Dash.canceled += DashPerformed;
+
     }
 
     private void OnDisable()
@@ -46,6 +48,7 @@ public class InputOneReader : IInputReader
         _input.Player.Dash.started -= DashPerformed;
         _input.Player.Dash.performed -= DashPerformed;
         _input.Player.Dash.canceled -= DashPerformed;
+        
         _input.Dispose();
     }
 

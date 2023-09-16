@@ -1,8 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Zenject;
+
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI _text;
@@ -11,6 +11,9 @@ public class Dialogue : MonoBehaviour
     private int _index;
     private ITalkableNPC _iTalkableNpc;
     private bool _isConversationStarted;
+
+    [Inject] private InputOneReader InputOneReader;
+    [Inject] private InputTwoReader InputTwoReader;
 
     private void Awake()
     {
@@ -24,7 +27,7 @@ public class Dialogue : MonoBehaviour
         gameObject.SetActive(false);
     }
     private void Update() {
-        if (_isConversationStarted && Input.GetKeyDown(KeyCode.E))
+        if (_isConversationStarted && InputOneReader.isInteraction || InputTwoReader.isInteraction)
         {
             if (_text.text == _lines[_index])
             {

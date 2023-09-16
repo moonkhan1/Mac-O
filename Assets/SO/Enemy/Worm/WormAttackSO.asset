@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc4936f5f642f24dbcae6dccc4350ff, type: 3}
   m_Name: WormAttackSO
   m_EditorClassIdentifier: 
-  _attackType: 0
+  _attackType: 1
   _damage: 1
-  _attackDelayTime: 1.5
+  _attackDelayTime: 1
   _attackRange: {x: 10, y: 10}

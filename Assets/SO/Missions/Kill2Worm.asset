@@ -19,5 +19,3 @@ MonoBehaviour:
   targetKills: 2
   currentKills: 0
   EnemyTypes: 0
-  missionPanel: {fileID: 5964497452297100290, guid: e400213d1f2a8df45a5e8f4656654caf, type: 3}
-  descriptionText: {fileID: 0}

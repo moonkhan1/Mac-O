@@ -12,6 +12,7 @@ public class AnimationController : IAnimation
     private static readonly int IsAttack = Animator.StringToHash("IsAttack");
     private static readonly int IsSwinging = Animator.StringToHash("IsSwinging");
     private static readonly int YVelocity = Animator.StringToHash("yVelocity");
+    private static readonly int IsPullingInMotion = Animator.StringToHash("IsPullingInMotion");
     public Animator _animator { get; }
     private Rigidbody2D _rigidbody2D;
 
@@ -36,12 +37,10 @@ public class AnimationController : IAnimation
     public async void DashAnimation(int dashDuration, bool isDashPressed, bool canDash)
     {
         if (!canDash) return;
-        if (isDashPressed)
-        {
-            _animator.SetBool(IsDash, true);
-            await Task.Delay(dashDuration);
-            _animator.SetBool(IsDash, false);
-        }
+        if (!isDashPressed) return;
+        _animator.SetBool(IsDash, true);
+        await Task.Delay(dashDuration);
+        _animator.SetBool(IsDash, false);
     }
 
     public void AttackAnimation(bool isAttacking)
@@ -62,13 +61,15 @@ public class AnimationController : IAnimation
 
     public void PullOrPushAnimation(bool isPullOrPushing, float horizontal)
     {
-        if (horizontal != 0 && isPullOrPushing)
+        if (isPullOrPushing)
         {
             _animator.SetBool(PullOrPush, true);
+            _animator.SetBool(IsPullingInMotion, horizontal!= 0);
         }
         else
         {
             _animator.SetBool(PullOrPush, false);
+            _animator.SetBool(IsPullingInMotion, false);
         }
     }
 }

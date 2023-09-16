@@ -15,6 +15,7 @@ public class MissionManager : MonoBehaviour
         foreach (var mission in allMissions)
         {
             mission.isCompleted = false;
+            mission.isActive = false;
             if (mission is KillMission killMission)
             {
                 killMission.currentKills = 0;

@@ -7,17 +7,25 @@ using UnityEngine;
 public class RangeAttack : IAttack
 {
     private readonly IPlayerController _playerController;
-    private bool canFire = true;
+    private bool canFire;
     private Collider2D[] colliderList;
+    private float _currentTime = 0f;
+    private readonly float _attackDelayTime;
+    private readonly Vector2 _attackRange;
 
     public int Damage { get; set; }
     public RangeAttack(IPlayerController playerController)
     {
         _playerController = playerController;
         Damage = playerController.Damage;
+        _attackDelayTime = _playerController.AttackSo.AttackDelayTime;
+        _attackRange = _playerController.AttackSo.AttackRange;
     }
     public void AttackAction(IAttack attack)
     {
+        _currentTime += Time.deltaTime;
+        canFire = _currentTime > _attackDelayTime;
+        
         LayerMask enemyLayer = 6;
         var weaponInHand = _playerController.PlayerWeaponInHand;
         var weapon = _playerController.PlayerWeapon;
@@ -28,12 +36,13 @@ public class RangeAttack : IAttack
         if(isInRangeObject == null) return;
         
         IEnemyController enemyController = isInRangeObject.GetComponent<IEnemyController>();
-        
+        // Debug.Log(canFire);
+        // Debug.Log(_playerController.CanInteractWithObject);
+        // Debug.Log(enemyController.Health.IsDead);
         if (_playerController.InputReader.isInteraction && canFire && !_playerController.CanInteractWithObject 
             && !enemyController.Health.IsDead)
         {
             _playerController.IsPlayerAttacking = true;
-            canFire = false;
             weaponInHand.gameObject.SetActive(false);
             var seq = DOTween.Sequence();
             GameObject weaponNew = Object.Instantiate(weapon, weaponInHand.transform.position, Quaternion.Euler(0, 0, 0));
@@ -65,24 +74,23 @@ public class RangeAttack : IAttack
             });
             
             enemySeq.Append(weaponNew.transform.DOLocalMove(playerPos+throwDirection,0.18f));
-
+            _currentTime = 0f;
             enemySeq.OnComplete(() => {
                 Object.Destroy(weaponNew);
                 weaponInHand.gameObject.SetActive(true);
-                canFire = true;
                 _playerController.IsPlayerAttacking = false;
             });
             if (enemyController.Health.IsDead)
             {
                 KilledEnemyTypes.Instance.RecordKilledEnemy(enemyController);
-                KilledEnemyTypes.Instance.GetKilledCount();
+                // KilledEnemyTypes.Instance.GetKilledCount();
             }
         }
 
     }
     private Collider2D FindClosestObjectOnLayer(int layer)
     {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(_playerController.transform.position, new Vector2(10, 10), 0, 1 << layer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(_playerController.transform.position, _attackRange, 0, 1 << layer);
         return colliders.FirstOrDefault();
     }
     

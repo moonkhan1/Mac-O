@@ -23,7 +23,6 @@ public class KillMission : MissionSO
         if (IsCompleted())
         {
             isCompleted = true;
-            Debug.Log("Worms killed");
             KilledEnemyTypes.Instance.ResetKillCount(EnemyTypes);
         }
     }

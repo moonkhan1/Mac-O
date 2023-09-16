@@ -8,7 +8,7 @@ public class AttackSO : ScriptableObject
 {
     enum AttackTypeEnum : byte
     {
-        Worm, Mage, Barbar
+        Range, Worm, Mage, Barbar
     }
     [SerializeField] AttackTypeEnum _attackType;
     
@@ -20,7 +20,7 @@ public class AttackSO : ScriptableObject
     public float AttackDelayTime => _attackDelayTime;
     public Vector2 AttackRange => _attackRange;
     
-    public IAttack GetTypeOfAttack(IEnemyController enemyController)
+    public IAttack GetTypeOfEnemyAttack(IEnemyController enemyController)
     {
         switch (_attackType)
         {

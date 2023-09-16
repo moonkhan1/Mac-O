@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d93e3a7262ea49944d3e9f315a686, type: 3}
   m_Name: WormHealthSO
   m_EditorClassIdentifier: 
-  _maxHealth: 45
+  _maxHealth: 20

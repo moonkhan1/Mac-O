@@ -158,7 +158,7 @@ namespace TwoD.Platformer
                 {
                     ""name"": """",
                     ""id"": ""992bbe63-8417-4ad6-a393-ef9f8b58e448"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -169,7 +169,7 @@ namespace TwoD.Platformer
                 {
                     ""name"": """",
                     ""id"": ""0412e551-5f88-4b5b-8e30-a6a96265738d"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/j"",
                     ""interactions"": ""Tap(duration=0.1)"",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -180,7 +180,7 @@ namespace TwoD.Platformer
                 {
                     ""name"": """",
                     ""id"": ""7a1ed58b-96e0-4396-9957-e3da08236714"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",

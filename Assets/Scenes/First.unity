@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5688724728283754764, guid: 311db1a536766b2459096e2c1096e005, type: 3}
+      propertyPath: FinalPanel
+      value: 
+      objectReference: {fileID: 3065482094394712091, guid: 2a09d1cec4a358448b4f1a58ebc41712, type: 3}
+    - target: {fileID: 5688724728283754764, guid: 311db1a536766b2459096e2c1096e005, type: 3}
+      propertyPath: MissionPanel
+      value: 
+      objectReference: {fileID: 5964497452297100290, guid: e400213d1f2a8df45a5e8f4656654caf, type: 3}
+    - target: {fileID: 5688724728283754764, guid: 311db1a536766b2459096e2c1096e005, type: 3}
+      propertyPath: MissionPanelDescriptionText
+      value: 
+      objectReference: {fileID: 2947745437408365369, guid: c1552736c2f371340b914dc55e5ea83a, type: 3}
     - target: {fileID: 5784472043268919004, guid: 311db1a536766b2459096e2c1096e005, type: 3}
       propertyPath: m_RootOrder
       value: 0

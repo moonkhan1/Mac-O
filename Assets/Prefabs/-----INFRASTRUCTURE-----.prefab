@@ -307,6 +307,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3468217262891788442, guid: cb561290c7f0a2b4b8605217abfe126a, type: 3}
+      propertyPath: allMissions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468217262891788442, guid: cb561290c7f0a2b4b8605217abfe126a, type: 3}
+      propertyPath: allMissions.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6597e059db2cd0a4a9f1d6c589959fe9, type: 2}
+    - target: {fileID: 3468217262891788442, guid: cb561290c7f0a2b4b8605217abfe126a, type: 3}
+      propertyPath: allMissions.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 82cf78956856ff84f898f56d7d3662fa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb561290c7f0a2b4b8605217abfe126a, type: 3}
 --- !u!4 &911045345 stripped
@@ -438,6 +450,14 @@ PrefabInstance:
     - target: {fileID: 2559951582387924478, guid: 26ef8bcb6cdfe544ea4e44201a6d75f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388125187856480674, guid: 26ef8bcb6cdfe544ea4e44201a6d75f3, type: 3}
+      propertyPath: MissionPanel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388125187856480674, guid: 26ef8bcb6cdfe544ea4e44201a6d75f3, type: 3}
+      propertyPath: MissionPanelDescriptionText
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26ef8bcb6cdfe544ea4e44201a6d75f3, type: 3}

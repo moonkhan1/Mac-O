@@ -50,10 +50,8 @@ public class KilledEnemyTypes : MMSingleton<KilledEnemyTypes>
         {
             return count;
         }
-        else
-        {
-            return 0; 
-        }
+        return 0; 
+        
     }
     
     private EnemyTypes DetermineEnemyType(IEnemyController enemyController)
@@ -62,7 +60,6 @@ public class KilledEnemyTypes : MMSingleton<KilledEnemyTypes>
         {
             return EnemyTypes.Worm;
         }
-    
         if (enemyController is MageController)
         {
             return EnemyTypes.Mage;

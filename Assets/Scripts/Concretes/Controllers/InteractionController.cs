@@ -25,27 +25,23 @@ public class InteractionController : InteractionBase
         LayerMask objectInteraction = 8;
         float maxHitDistance = 1f;
         Vector2 rayDirection = _playerController.IsFacingRight ? Vector2.right : Vector2.left;
-        RaycastHit2D hit2D = Physics2D.Raycast(rayCastPoint.position, rayDirection, maxHitDistance);
-    
-        bool canInteract = false;
-
+        RaycastHit2D hit2D = Physics2D.Raycast(rayCastPoint.position, rayDirection, maxHitDistance, 1 << objectInteraction);
+        
         if (hit2D.collider != null)
         {
-            canInteract = hit2D.transform.gameObject.layer == objectInteraction;
-            interactionUI.gameObject.SetActive(canInteract);
+            interactionUI.gameObject.SetActive(true);
+            _playerController.CanInteractWithObject = true;
         }
         else
         {
             interactionUI.gameObject.SetActive(false);
+            _playerController.CanInteractWithObject = false;
             if(_playerController.ObjectInHand == null) return;
             _playerController.ObjectInHand.SetParent(null);
             _playerController.ObjectInHand = null;
             isHolding = false;
         }
-
-        _playerController.CanInteractWithObject = canInteract;
-
-        if (canInteract && _playerController.InputReader.isInteraction && !isSwinging)
+        if (hit2D.collider != null && _playerController.InputReader.isInteraction && !isSwinging)
         {
             Transform objectInHand = _playerController.ObjectInHand;
 
@@ -75,7 +71,7 @@ public class InteractionController : InteractionBase
         LayerMask swingableObject = 7;
         if (_playerController.InputReader.isInteraction && !isHolding)
         {
-            Collider2D isInRangeObject = FindClosestObjectOnLayer(swingableObject);
+            Collider2D isInRangeObject = FindClosestObjectOnLayer(swingableObject, new Vector2(7,7));
         
             if (!isSwinging && isInRangeObject != null)
             {
@@ -90,9 +86,9 @@ public class InteractionController : InteractionBase
         UpdateSwingLineRenderer();
     }
 
-    private Collider2D FindClosestObjectOnLayer(int layer)
+    private Collider2D FindClosestObjectOnLayer(int layer, Vector2 sizeOfDetection)
     {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(_playerController.transform.position, new Vector2(7, 7), 0, 1 << layer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(_playerController.transform.position, sizeOfDetection, 0, 1 << layer);
         return colliders.FirstOrDefault();
     }
 
@@ -103,7 +99,7 @@ public class InteractionController : InteractionBase
         _springJoint.autoConfigureDistance = false;
         _springJoint.distance = 3;
         _springJoint.dampingRatio = 1;
-        _springJoint.frequency = 0;
+        _springJoint.frequency = 4;
         _playerController.IsSwinging = _springJoint.connectedBody.transform;
         isSwinging = true;
         _lineRenderer.positionCount = 2;

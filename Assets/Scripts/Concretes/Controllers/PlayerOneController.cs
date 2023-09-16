@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
 public class PlayerOneController : MonoBehaviour, IPlayerController
 {
@@ -29,6 +28,7 @@ public class PlayerOneController : MonoBehaviour, IPlayerController
     public int DashDuration => MovementSo.DashDuration;
 
     [SerializeField] Rigidbody2D _rigidBody2D;
+    // [SerializeField] Rigidbody2D _rigidBody2D;
     [SerializeField] private Transform _interactionIcon;
     [SerializeField] private Transform _rayCastPoint;
     [SerializeField] private Transform _playerWeaponInHand;
@@ -45,7 +45,7 @@ public class PlayerOneController : MonoBehaviour, IPlayerController
     public bool CanDash { get; set; } = true;
     public Transform IsSwinging { get; set; }
     public bool Jumping { get; set; } = false;
-    public bool IsPlayerAttacking { get; set; }
+    public bool IsPlayerAttacking { get; set; } = false;
     public bool IsFacingRight { get; private set; }
     [Inject] public MissionManager MissionManager { get; }
     public bool CanInteractWithObject { get; set; }
@@ -83,6 +83,7 @@ public class PlayerOneController : MonoBehaviour, IPlayerController
     {
         const int delayTimeBeforeDestroy = 1000;
         _animation.DeadAnimation("IsDead");
+        
         await Task.Delay(delayTimeBeforeDestroy);
         if(this == null) return;
         Destroy(this.gameObject);

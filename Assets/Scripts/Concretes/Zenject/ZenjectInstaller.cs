@@ -8,5 +8,7 @@ public class ZenjectInstaller : MonoInstaller
         Container.Bind<EnemyManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<MissionManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<KilledEnemyTypes>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<InputOneReader>().AsSingle();
+        Container.Bind<InputTwoReader>().AsSingle();
     }
 }
