@@ -8,12 +8,16 @@ public class StateMachine
     List<StateTransformer> _anyStateTransformers = new();
     
     IState _currentState;
+    IState _previousState;
+    public IState CurrentState => _currentState;
+    public IState PreviousState => _previousState;
     
     public void SetState(IState state)
     {
         if (_currentState == state) return;
     
         _currentState?.OnExit();
+        _previousState = _currentState;
         _currentState = state;
         _currentState.OnEnter();}
     

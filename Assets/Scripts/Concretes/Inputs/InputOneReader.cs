@@ -9,10 +9,10 @@ public class InputOneReader : IInputReader
 {
     readonly PlayerOneInput _input;
     public float Horizontal { get; private set; }
-    public bool isJump { get;  private set; }
-    public bool isMovingPressed { get;  private set; }
-    public bool isInteraction { get; private set; }
-    public bool isDash { get; private set; }
+    public bool isJump { get; internal set; }
+    public bool isMovingPressed { get; internal set; }
+    public bool isInteraction { get; internal set; }
+    public bool isDash { get; internal set; }
     public PlayerOneInput Input => _input;
     
     int _inventoryIndex;

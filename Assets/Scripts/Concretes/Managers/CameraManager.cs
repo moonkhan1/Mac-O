@@ -19,7 +19,6 @@ public class CameraManager : MonoBehaviour
     {
         if (col.CompareTag(TagName))
         {
-            Debug.Log("camera");
             CinemachineVirtualCamera targetCamera = col.GetComponentInChildren<CinemachineVirtualCamera>();
             ChangeCamera(targetCamera);
         }

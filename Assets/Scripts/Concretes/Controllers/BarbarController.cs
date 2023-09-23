@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Concretes.States.EnemyStates;
 using UnityEngine;
 using UnityEngine.AI;
@@ -100,19 +101,29 @@ public class BarbarController : MonoBehaviour, IEnemyController
         _stateMachine.SetState(idleState);
     }
 
-    private void UpdateSpriteOrientation()
+    private async void UpdateSpriteOrientation()
     {
         if (Target != null)
         {
             Vector2 directionToPlayer = Target.position - Transform.position;
-
             if (directionToPlayer.x < 0)
             {
+                if (_stateMachine.PreviousState is not IdleState)
+                {
+                    await Task.Delay(1200);
+                    Transform.GetChild(0).localScale = new Vector3(-1f, 1f, 1f);
+                }
                 Transform.GetChild(0).localScale = new Vector3(-1f, 1f, 1f);
             }
             else if (directionToPlayer.x > 0)
             {
+                if (_stateMachine.PreviousState is not IdleState)
+                {
+                    await Task.Delay(1200);
+                    Transform.GetChild(0).localScale = new Vector3(1f, 1f, 1f);
+                }
                 Transform.GetChild(0).localScale = new Vector3(1f, 1f, 1f);
+
             }
         }
     }

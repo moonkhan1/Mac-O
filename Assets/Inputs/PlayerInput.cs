@@ -168,6 +168,17 @@ namespace TwoD.Platformer
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3614b5ab-dff7-4e45-b946-ac66dac45e1c"",
+                    ""path"": ""<Touchscreen>/touch0/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""0412e551-5f88-4b5b-8e30-a6a96265738d"",
                     ""path"": ""<Keyboard>/j"",
                     ""interactions"": ""Tap(duration=0.1)"",
@@ -179,11 +190,33 @@ namespace TwoD.Platformer
                 },
                 {
                     ""name"": """",
+                    ""id"": ""8a2393fc-4c1b-4e49-a387-ebba42ce97e0"",
+                    ""path"": ""<Touchscreen>/touch2/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7a1ed58b-96e0-4396-9957-e3da08236714"",
                     ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""201242c4-196c-4fb0-a9f3-a0453805895e"",
+                    ""path"": ""<Touchscreen>/touch1/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
