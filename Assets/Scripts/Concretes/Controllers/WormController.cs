@@ -55,6 +55,10 @@ public class WormController : MonoBehaviour, IEnemyController
 
     private void Update()
     {
+        Dead.IsDead += () =>
+        {
+            return;
+        };
         UpdateSpriteOrientation();
         FindClosestEnemyOnLayer(EnemyLayerMask);
         _stateMachine.Tick();
@@ -102,6 +106,10 @@ public class WormController : MonoBehaviour, IEnemyController
 
     private void UpdateSpriteOrientation()
     {
+        Dead.IsDead += () =>
+        {
+            return;
+        };
         if (Target != null)
         {
             Vector2 directionToPlayer = Target.position - Transform.position;

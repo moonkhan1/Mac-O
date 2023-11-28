@@ -28,7 +28,6 @@ public class PlayerOneController : MonoBehaviour, IPlayerController
     public int DashDuration => MovementSo.DashDuration;
 
     [SerializeField] Rigidbody2D _rigidBody2D;
-    // [SerializeField] Rigidbody2D _rigidBody2D;
     [SerializeField] private Transform _interactionIcon;
     [SerializeField] private Transform _rayCastPoint;
     [SerializeField] private Transform _playerWeaponInHand;

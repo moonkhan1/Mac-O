@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: -----INFRASTRUCTURE-----
       objectReference: {fileID: 0}
+    - target: {fileID: 7181059731221563060, guid: 311db1a536766b2459096e2c1096e005, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 311db1a536766b2459096e2c1096e005, type: 3}
 --- !u!1 &948697019 stripped

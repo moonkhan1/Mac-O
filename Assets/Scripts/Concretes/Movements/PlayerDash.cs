@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerDash : IDash
@@ -24,7 +25,7 @@ public class PlayerDash : IDash
             await Dash();
         }
     }
-    private async Task Dash()
+    private async UniTask Dash()
     {
         _playerController.CanDash = false;
         float originalGravity = _rb2D.gravityScale;
@@ -42,12 +43,12 @@ public class PlayerDash : IDash
             _rb2D.velocity = (new Vector2(horizontalInput * dashSpeed, _rb2D.velocity.y));
             trailRenderer.emitting = true;
             _rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-            await Task.Delay(dashDuration);
+            await UniTask.Delay(dashDuration);
             _rb2D.constraints = originalConstraints;
             _rb2D.velocity = (new Vector2(0f, _rb2D.velocity.y));
             trailRenderer.emitting = false;
             _rb2D.gravityScale = originalGravity;
-            await Task.Delay(dashCooldown); 
+            await UniTask.Delay(dashCooldown); 
             _playerController.CanDash = true;
         }
 

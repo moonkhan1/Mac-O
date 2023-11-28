@@ -30,8 +30,10 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Zenject
+    - UniTask
     - Assembly-CSharp
     - MoreMountains.Feedbacks
+    - UniTask.Linq
     - MoreMountains.Tools
     - MoreMountains.Feedbacks.URP
     - Zenject-IntegrationTests
@@ -42,12 +44,15 @@ MonoBehaviour:
     - MoreMountains.Feedbacks.PostProcessing
     - MoreMountains.Feedbacks.HDRP
     - MoreMountains.Feedbacks.TextMeshPro
+    - UniTask.DOTween
     - NavMeshPlus
     - Lofelt.NiceVibrations.Demo
     - MoreMountains.Feedbacks.Cinemachine
     - Lofelt.NiceVibrations
     - ToonyColorsPro.Runtime
     - Extenject-Addressable-Tests
+    - UniTask.Addressables
+    - UniTask.TextMeshPro
     - Async.Tests
     - MoreMountains.Tools.Editor
     - PsdPlugin
@@ -56,6 +61,7 @@ MonoBehaviour:
     - ToonyColorsPro.Editor
     - Zenject-TestFramework
     - NavMeshPlusEditor
+    - UniTask.Editor
     - Lofelt.NiceVibrations.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0

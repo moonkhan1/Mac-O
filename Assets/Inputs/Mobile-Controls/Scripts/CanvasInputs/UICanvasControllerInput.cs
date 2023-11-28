@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using TwoD.Platformer;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -67,14 +68,14 @@ public class UICanvasControllerInput : MonoBehaviour
     private async Task WaitFrameForWeaponInteractionAsync()
     {
         inputs.isInteraction = true && _inventoryIndex % 2 == 0;
-        await Task.Yield(); 
+        await UniTask.Yield(); 
         inputs.isInteraction = false;
         _inventoryIndex++;
     }
     private async Task WaitFrameForWeaponJumpAsync()
     {
         inputs.isJump = true && _jumpIndex % 2 == 0;
-        await Task.Yield(); 
+        await UniTask.Yield(); 
         inputs.isJump = false;
         _jumpIndex++;
     }

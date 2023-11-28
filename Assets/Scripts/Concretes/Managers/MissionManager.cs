@@ -9,6 +9,7 @@ public class MissionManager : MonoBehaviour
     public List<MissionSO> activeMissions = new();
     public List<MissionSO> completedMissions = new();
     public static event Action<MissionSO> OnMissionCompleted;
+    public static event Action<MissionSO> OnMissionStarted;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class MissionManager : MonoBehaviour
         {
             activeMissions.Add(mission);
             mission.isActive = true;
+            OnMissionStarted?.Invoke(mission);
         }
         CheckBlockedPaths();
     }

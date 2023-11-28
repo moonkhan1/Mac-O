@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -39,7 +40,7 @@ public class AnimationController : IAnimation
         if (!canDash) return;
         if (!isDashPressed) return;
         _animator.SetBool(IsDash, true);
-        await Task.Delay(dashDuration);
+        await UniTask.Delay(dashDuration);
         _animator.SetBool(IsDash, false);
     }
 

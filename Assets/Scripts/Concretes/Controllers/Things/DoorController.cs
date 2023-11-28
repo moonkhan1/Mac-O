@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
@@ -40,7 +41,7 @@ public class DoorController : MonoBehaviour
    private async void CloseDoor()
    {
       _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-      await Task.Delay(1000);
+      await UniTask.Delay(1000);
       _rigidbody2D.bodyType = RigidbodyType2D.Static;
 
    }

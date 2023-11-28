@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Concretes.States.EnemyStates;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -56,6 +57,11 @@ public class BarbarController : MonoBehaviour, IEnemyController
 
     private void Update()
     {
+        Dead.IsDead += () =>
+        {
+            return;
+        };
+        
         UpdateSpriteOrientation();
         FindClosestEnemyOnLayer(EnemyLayerMask);
         _stateMachine.Tick();
@@ -103,6 +109,11 @@ public class BarbarController : MonoBehaviour, IEnemyController
 
     private async void UpdateSpriteOrientation()
     {
+        Dead.IsDead += () =>
+        {
+            return;
+        };
+       
         if (Target != null)
         {
             Vector2 directionToPlayer = Target.position - Transform.position;
@@ -110,18 +121,22 @@ public class BarbarController : MonoBehaviour, IEnemyController
             {
                 if (_stateMachine.PreviousState is not IdleState)
                 {
-                    await Task.Delay(1200);
+                    await UniTask.Delay(1200);
+                    if (Transform == null) return;
                     Transform.GetChild(0).localScale = new Vector3(-1f, 1f, 1f);
                 }
+                if (Transform == null) return;
                 Transform.GetChild(0).localScale = new Vector3(-1f, 1f, 1f);
             }
-            else if (directionToPlayer.x > 0)
+            else if (directionToPlayer.x > 0) 
             {
                 if (_stateMachine.PreviousState is not IdleState)
                 {
-                    await Task.Delay(1200);
+                    await UniTask.Delay(1200);
+                    if (Transform == null) return;
                     Transform.GetChild(0).localScale = new Vector3(1f, 1f, 1f);
                 }
+                if (Transform == null) return;
                 Transform.GetChild(0).localScale = new Vector3(1f, 1f, 1f);
 
             }
